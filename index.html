@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Trilupet - Agendamento de Consultas</title>
+</head>
+<body>
+    <div class="app-container">   
+        <!-- Sidebar / Banner lateral -->
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="img/ChatGPT_Img.png" alt="Trilupet Logo">
+            </div>
+            <div class="sidebar-info">
+                <h2>TriluPet Service</h2>
+                <p>Tudo que você precisa para o seu PET em um só lugar.</p>
+            </div>
+        </aside>    
+
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <header class="main-header">
+                <h1>TriluPet - Agendamento</h1>
+                <p>Cadastre e Gerencie os Agendamentos do seu Pet.</p>
+            </header>
+
+            <!-- Card de Formulário -->
+            <section class="card form-card">
+                <h2>Novo Agendamento</h2>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="petNome">Nome do Pet:</label>
+                        <input type="text" id="petNome" placeholder="Ex: Rex">
+                    </div>
+                    <div class="input-group">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" placeholder="01001000" onblur="buscarEndereco()">
+                    </div>
+                    <div class="input-group">
+                        <label for="logradouro">Logradouro:</label>
+                        <input type="text" id="logradouro" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" readonly>
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="localidade">Cidade/UF:</label>
+                        <input type="text" id="localidade" readonly>
+                    </div>
+                </div>
+                <button type="button" class="btn-primary" onclick="salvarAgendamento()">Cadastrar Agendamento</button>
+            </section>
+
+            <!-- Card da Tabela de Agendamentos -->
+            <section class="card table-card">
+                <h2>Agendamentos Cadastrados</h2>
+                <button type="button" class="btn-primary" style="margin-bottom: 16px;" onclick="carregarAgendamentos()">Atualizar Lista</button>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pet</th>
+                                <th>Endereço</th>
+                                <th class="actions-header">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaAgendamentos"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
